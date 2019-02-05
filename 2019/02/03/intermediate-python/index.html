@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Python,">
 
 
 
@@ -94,16 +94,18 @@
 
 
 
-<meta name="description" content="My efforts to become a Data Scientist">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Chelly&#39;s Wonderland">
-<meta property="og:url" content="http://yoursite.com/tags/diary/index.html">
+<meta name="description" content="List vs DictionaryList: indexed by range of numbers; collection of values order mattersDictionary: indexed by unique keys; lookup table with unique keys  An Example: #Definition of dictionaryeurope =">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intermediate Python for Data Science">
+<meta property="og:url" content="http://yoursite.com/2019/02/03/intermediate-python/index.html">
 <meta property="og:site_name" content="Chelly&#39;s Wonderland">
-<meta property="og:description" content="My efforts to become a Data Scientist">
+<meta property="og:description" content="List vs DictionaryList: indexed by range of numbers; collection of values order mattersDictionary: indexed by unique keys; lookup table with unique keys  An Example: #Definition of dictionaryeurope =">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-04T06:12:50.473Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chelly&#39;s Wonderland">
-<meta name="twitter:description" content="My efforts to become a Data Scientist">
+<meta name="twitter:title" content="Intermediate Python for Data Science">
+<meta name="twitter:description" content="List vs DictionaryList: indexed by range of numbers; collection of values order mattersDictionary: indexed by unique keys; lookup table with unique keys  An Example: #Definition of dictionaryeurope =">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/diary/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/03/intermediate-python/">
 
 
 
 
 
-  <title>Tag: diary | Chelly's Wonderland</title>
+  <title>Intermediate Python for Data Science | Chelly's Wonderland</title>
   
 
 
@@ -163,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -257,52 +259,185 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>diary<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/03/intermediate-python/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qianling Ye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chelly's Wonderland">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/01/01/python-note1/" itemprop="url">
-              
-                <span itemprop="name">Diary One</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Intermediate Python for Data Science</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-01T16:06:20-06:00" content="2019-01-01">
-          01-01
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-03T14:52:13-06:00">
+                2019-02-03
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="List-vs-Dictionary"><a href="#List-vs-Dictionary" class="headerlink" title="List vs Dictionary"></a>List vs Dictionary</h3><p>List: indexed by range of numbers; collection of values order matters<br>Dictionary: indexed by unique keys; lookup table with unique keys </p>
+<p>An Example:</p>
+<p>#Definition of dictionary<br><code>europe = {&#39;spain&#39;:&#39;madrid&#39;, &#39;france&#39;:&#39;paris&#39;, &#39;germany&#39;:&#39;berlin&#39;, &#39;norway&#39;:&#39;oslo&#39; ,&#39;australia&#39;:&#39;vienna&#39; }</code></p>
+<p>#Add italy to europe<br><code>europe[&#39;italy&#39;] = &#39;rome&#39;</code><br><code>europe.update({&#39;italy&#39;:&#39;rome&#39;})</code></p>
+<p>#Print out italy in europe<br><code>print(&#39;italy&#39; in europe)</code></p>
+<p>#Add poland to europe<br><code>europe[&#39;poland&#39;] = &#39;warsaw&#39;</code></p>
+<p>#Update capital of germany<br><code>europe[&#39;germany&#39;] = &#39;berlin&#39;</code></p>
+<p>#Remove australia<br><code>del(europe[&#39;australia&#39;])</code></p>
+<p>#Print europe<br><code>print(europe)</code></p>
+<p>#Dictionary of dictionaries<br>europe = { ‘spain’: { ‘capital’:’madrid’, ‘population’:46.77 },<br>           ‘france’: { ‘capital’:’paris’, ‘population’:66.03 },<br>           ‘germany’: { ‘capital’:’berlin’, ‘population’:80.62 },<br>           ‘norway’: { ‘capital’:’oslo’, ‘population’:5.084 } }</p>
+<p>#Print out the capital of France<br><code>europe[&#39;france&#39;][&#39;capital&#39;]</code></p>
+<p>#Create sub-dictionary data<br><code>data = {&#39;capital&#39;:&#39;rome&#39;,&#39;population&#39;:59.83}</code></p>
+<p>#Add data to europe under key ‘italy’<br><code>europe[&#39;italy&#39;] = data</code></p>
+<h3 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h3><p>High level data manipulation tool<br>Built on Numpy </p>
+<p>An Example:</p>
+<p>#Pre-defined lists<br>names = [‘United States’, ‘Australia’, ‘Japan’, ‘India’, ‘Russia’, ‘Morocco’, ‘Egypt’]<br>dr =  [True, False, False, False, True, True, True]<br>cpc = [809, 731, 588, 18, 200, 70, 45]</p>
+<p>#Import pandas as pd<br><code>import pandas as pd</code></p>
+<p>#Create dictionary my_dict with three key:value pairs: my_dict<br><code>my_dict = {&#39;country&#39;:names, &#39;drives_right&#39;:dr,&#39;cars_per_cap&#39;:cpc}</code></p>
+<p>#Build a DataFrame cars from my_dict: cars<br><code>cars = pd.DataFrame(my_dict)</code></p>
+<p>#Definition of row_labels<br><code>row_labels = [&#39;US&#39;, &#39;AUS&#39;, &#39;JAP&#39;, &#39;IN&#39;, &#39;RU&#39;, &#39;MOR&#39;, &#39;EG&#39;]</code></p>
+<p>#Specify row labels of cars<br><code>cars.index = row_labels</code></p>
+<p>#Print cars<br><code>print(cars)</code></p>
+<p>####Import the cars.csv data: cars<br><code>cars = pd.DataFrame(pd.read_csv(&quot;cars.csv&quot;))</code></p>
+<p>#Fix import by including index_col<br><code>cars = pd.read_csv(&#39;cars.csv&#39;,index_col = 0)</code></p>
+<p>##Specify the index_col argument inside pd.read_csv(): set it to 0, so that the first column is used as row labels.</p>
+<h4 id="Index-and-Select-Data"><a href="#Index-and-Select-Data" class="headerlink" title="Index and Select Data"></a>Index and Select Data</h4><p>Series: 1D labelled array<br>Pandas</p>
+<ol>
+<li>loc: label-based <ol>
+<li>Row Access loc </li>
+<li>Column loc</li>
+<li>Row&amp;Column loc</li>
+</ol>
+</li>
+<li>iloc: integer position-based </li>
+</ol>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/01/Python0201/" rel="next" title="Python Introduction for Data Science">
+                <i class="fa fa-chevron-left"></i> Python Introduction for Data Science
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/05/tableau0204/" rel="prev" title="Tableau For Data Science (2)">
+                Tableau For Data Science (2) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -310,6 +445,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -330,8 +469,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Qianling Ye">
           <p class="site-author-name" itemprop="name">Qianling Ye</p>
@@ -417,6 +565,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#List-vs-Dictionary"><span class="nav-number">1.</span> <span class="nav-text">List vs Dictionary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandas"><span class="nav-number">2.</span> <span class="nav-text">Pandas</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Index-and-Select-Data"><span class="nav-number">2.1.</span> <span class="nav-text">Index and Select Data</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -530,10 +694,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
