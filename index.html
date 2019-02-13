@@ -273,6 +273,173 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/12/python0210/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qianling Ye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chelly's Wonderland">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/12/python0210/" itemprop="url">Intermediate Python for Data Science (2)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-12T16:52:33-06:00">
+                2019-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Pandas-DataFrames"><a href="#Pandas-DataFrames" class="headerlink" title="Pandas DataFrames"></a>Pandas DataFrames</h3><p>#Import cars data<br><code>import pandas as pd</code><br><code>cars = pd.read_csv(&#39;cars.csv&#39;, index_col = 0)</code><br>cars data is imported from a CSV files as a Pandas DataFrame. </p>
+<p>#Print out country column as Pandas Series<br><code>print(cars[&#39;country&#39;])</code></p>
+<p>#Print out country column as Pandas DataFrame<br><code>print(cars[[&#39;country&#39;]])</code></p>
+<p>#Print out DataFrame with country and drives_right columns<br><code>print(cars[[&#39;country&#39;,&#39;drives_right&#39;]])</code></p>
+<p>The single bracket version gives a Pandas Series, the double bracket version gives a Pandas DataFrame.</p>
+<p>#Print out first 3 observations<br><code>print(cars[0:3])</code></p>
+<p>#Print out fourth, fifth and sixth observation<br><code>print(cars[3:6])</code></p>
+<h5 id="loc-and-iloc-1"><a href="#loc-and-iloc-1" class="headerlink" title="loc and iloc (1)"></a>loc and iloc (1)</h5><p>loc is label-based, which means that you have to specify rows and columns based on their row and column labels. iloc is integer index based, so you have to specify rows and columns by their integer index like you did in the previous exercise.<br><code>cars.loc[&#39;RU&#39;]</code><br><code>cars.iloc[4]</code></p>
+<p><code>cars.loc[[&#39;RU&#39;]]</code><br><code>cars.iloc[[4]]</code></p>
+<p><code>cars.loc[[&#39;RU&#39;, &#39;AUS&#39;]]</code><br><code>cars.iloc[[4, 1]]</code></p>
+<h5 id="loc-and-iloc-2"><a href="#loc-and-iloc-2" class="headerlink" title="loc and iloc (2)"></a>loc and iloc (2)</h5><p>loc and iloc also allow you to select both rows and columns from a DataFrame.<br><code>cars.loc[&#39;IN&#39;, &#39;cars_per_cap&#39;]</code><br><code>cars.iloc[3, 0]</code></p>
+<p><code>cars.loc[[&#39;IN&#39;, &#39;RU&#39;], &#39;cars_per_cap&#39;]</code><br><code>cars.iloc[[3, 4], 0]</code></p>
+<p><code>cars.loc[[&#39;IN&#39;, &#39;RU&#39;], [&#39;cars_per_cap&#39;, &#39;country&#39;]]</code><br><code>cars.iloc[[3, 4], [0, 1]]</code></p>
+<p>#Print out drives_right value of Morocco<br><code>print(cars.loc[&#39;MOR&#39;])</code></p>
+<p>#Print sub-DataFrame<br><code>print(cars.loc[[&#39;RU&#39;,&#39;MOR&#39;],[&#39;country&#39;,&#39;drives_right&#39;]])</code></p>
+<h5 id="loc-and-iloc-3"><a href="#loc-and-iloc-3" class="headerlink" title="loc and iloc (3)"></a>loc and iloc (3)</h5><p>It’s also possible to select only columns with loc and iloc. In both cases, you simply put a slice going from beginning to end in front of the comma:<br><code>cars.loc[:, &#39;country&#39;]</code><br><code>cars.iloc[:, 1]</code></p>
+<p><code>cars.loc[:, [&#39;country&#39;,&#39;drives_right&#39;]]</code><br><code>cars.iloc[:, [1, 2]]</code></p>
+<h3 id="Compare-Numpy-arrays"><a href="#Compare-Numpy-arrays" class="headerlink" title="Compare Numpy arrays"></a>Compare Numpy arrays</h3><p>Using comparison operators, generate boolean arrays: </p>
+<p>#Create arrays<br><code>import numpy as np</code><br><code>my_house = np.array([18.0, 20.0, 10.75, 9.50])</code><br><code>your_house = np.array([14.0, 24.0, 14.25, 9.0])</code></p>
+<p>#my_house greater than or equal to 18<br><code>print (my_house &gt;= 18)</code></p>
+<p>#my_house less than your_house<br><code>print (my_house &lt; your_house)</code></p>
+<h3 id="Boolean-operators-with-Numpy"><a href="#Boolean-operators-with-Numpy" class="headerlink" title="Boolean operators with Numpy"></a>Boolean operators with Numpy</h3><p>The operational operators like &lt; and &gt;= worked with Numpy arrays out of the box. Unfortunately, this is not true for the boolean operators and, or, and not.<br>To use these operators with Numpy, you will need np.logical_and(), np.logical_or() and np.logical_not(). </p>
+<h3 id="Conditional-Statements"><a href="#Conditional-Statements" class="headerlink" title="Conditional Statements"></a>Conditional Statements</h3><p>if, elif, else</p>
+<h3 id="Filtering-Pandas-DataFrame"><a href="#Filtering-Pandas-DataFrame" class="headerlink" title="Filtering Pandas DataFrame"></a>Filtering Pandas DataFrame</h3><p>#Import cars data<br><code>import pandas as pd</code><br><code>cars = pd.read_csv(&#39;cars.csv&#39;, index_col = 0)</code></p>
+<p>#Extract drives_right column as Series: dr<br><code>dr = cars[&#39;drives_right&#39;]</code></p>
+<p>#Use dr to subset cars: sel<br><code>sel = cars[dr]</code></p>
+<p>#Create car_maniac: observations that have a cars_per_cap over 500<br><code>car_maniac = cars[cars[&#39;cars_per_cap&#39;]&gt;500]</code></p>
+<p>#Create medium: observations with cars_per_cap between 100 and 500<br><code>medium = cars[np.logical_and(cars[&#39;cars_per_cap&#39;]&gt;100, cars[&#39;cars_per_cap&#39;]&lt;500)]</code></p>
+<h3 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h3><h5 id="while-loop"><a href="#while-loop" class="headerlink" title="while loop"></a>while loop</h5><p><code>while offset != 0 :</code><br>    <code>if offset &gt;0:</code><br>        <code>offset = offset -1</code><br>    <code>else:</code><br>        <code>offset = offset +1</code><br>    <code>print(&quot;correcting...&quot;)</code><br>    <code>print(offset)</code></p>
+<h5 id="for-loop"><a href="#for-loop" class="headerlink" title="for loop"></a>for loop</h5><p>#areas list<br><code>areas = [11.25, 18.0, 20.0, 10.75, 9.50]</code></p>
+<p>#Code the for loop<br><code>for area in areas:</code><br>    <code>print(area)</code></p>
+<p>#Change for loop to use enumerate() and update print()<br><code>for index, area in enumerate(areas) :</code><br>    <code>print(&quot;room &quot; + str(index) + &quot;: &quot; + str(area))</code></p>
+<p>#house list of lists<br><code>house = [[&quot;hallway&quot;, 11.25],</code><br>         <code>[&quot;kitchen&quot;, 18.0],</code><br>         <code>[&quot;living room&quot;, 20.0],</code><br>         <code>[&quot;bedroom&quot;, 10.75],</code><br>         <code>[&quot;bathroom&quot;, 9.50]]</code></p>
+<p>#Build a for loop from scratch<br><code>for x in house:</code><br>    <code>print(&quot;the &quot;+ x[0]+ &quot; is &quot;+ str(x[1])+&quot; sqm&quot;)</code></p>
+<h5 id="Loop-over-dictionary"><a href="#Loop-over-dictionary" class="headerlink" title="Loop over dictionary"></a>Loop over dictionary</h5><p>In Python 3, you need the items() method to loop over a dictionary:</p>
+<p><code>world = { &quot;afghanistan&quot;:30.55,</code><br>          <code>&quot;albania&quot;:2.77,</code><br>         <code>&quot;algeria&quot;:39.21 }</code></p>
+<p><code>for key, value in world.items() :</code><br>    <code>print(key + &quot; -- &quot; + str(value))</code></p>
+<h5 id="Loop-over-Numpy-array"><a href="#Loop-over-Numpy-array" class="headerlink" title="Loop over Numpy array"></a>Loop over Numpy array</h5><p>If you’re dealing with a 1D Numpy array, looping over all elements can be as simple as:</p>
+<p><code>for x in my_array :</code></p>
+<p>If you’re dealing with a 2D Numpy array, it’s more complicated. A 2D array is built up of multiple 1D arrays. To explicitly iterate over all separate elements of a multi-dimensional array, you’ll need this syntax:</p>
+<p><code>for x in np.nditer(my_array) :</code></p>
+<h5 id="Loop-over-DataFrame-1"><a href="#Loop-over-DataFrame-1" class="headerlink" title="Loop over DataFrame (1)"></a>Loop over DataFrame (1)</h5><p>Iterating over a Pandas DataFrame is typically done with the iterrows()</p>
+<p>#Iterate over rows of cars<br><code>for lab, row in cars.iterrows():</code><br>    <code>print(lab)</code><br>    <code>print(row)</code></p>
+<h5 id="Loop-over-DataFrame-2"><a href="#Loop-over-DataFrame-2" class="headerlink" title="Loop over DataFrame (2)"></a>Loop over DataFrame (2)</h5><p>The row data that’s generated by iterrows() on every run is a Pandas Series. This format is not very convenient to print out. Luckily, you can easily select variables from the Pandas Series using square brackets:</p>
+<p><code>for lab, row in brics.iterrows() :</code><br>    <code>print(row[&#39;country&#39;])</code></p>
+<p>#Adapt for loop<br><code>for lab, row in cars.iterrows() :</code><br>   <code>print(lab +&quot;: &quot;+ str(row[&#39;cars_per_cap&#39;]))</code></p>
+<h5 id="Add-column-1"><a href="#Add-column-1" class="headerlink" title="Add column (1)"></a>Add column (1)</h5><p><code>for lab, row in brics.iterrows() :</code><br>    <code>brics.loc[lab, &quot;name_length&quot;] = len(row[&quot;country&quot;])</code></p>
+<p>#Code for loop that adds COUNTRY column<br><code>for lab, row in cars.iterrows():</code><br>    <code>cars.loc[lab,&quot;COUNTRY&quot;] = str.upper(row[&quot;country&quot;])</code><br><code>for lab, row in cars.iterrows() :</code><br>    <code>cars.loc[lab, &quot;COUNTRY&quot;] = row[&quot;country&quot;].upper()</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/05/tableau0204/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1220,7 +1387,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
