@@ -273,6 +273,132 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/SQL0214/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qianling Ye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chelly's Wonderland">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/20/SQL0214/" itemprop="url">SQL for Data Science (1)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-20T16:37:15-06:00">
+                2019-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="SQL-for-Data-Science-1"><a href="#SQL-for-Data-Science-1" class="headerlink" title="SQL for Data Science (1)"></a>SQL for Data Science (1)</h3><h5 id="Null-and-Is-Null"><a href="#Null-and-Is-Null" class="headerlink" title="Null and Is Null"></a>Null and Is Null</h5><p>Get the number of films which don’t have a language associated with them.<br><code>select count(*)</code><br><code>from films</code><br><code>where language is null</code></p>
+<h5 id="Like-and-Not-like"><a href="#Like-and-Not-like" class="headerlink" title="Like and Not like"></a>Like and Not like</h5><p><code>select name</code><br><code>from people</code><br><code>where name not like &#39;_A%&#39;</code></p>
+<h5 id="Aggregate-functions"><a href="#Aggregate-functions" class="headerlink" title="Aggregate functions"></a>Aggregate functions</h5><p>AVG, SUM, MAX</p>
+<h5 id="A-note-on-arithmetic"><a href="#A-note-on-arithmetic" class="headerlink" title="A note on arithmetic"></a>A note on arithmetic</h5><p>SQL assumes that if you divide an integer by an integer, you want to get an integer back. So be careful when dividing!<br>If you want more precision when dividing, you can add decimal places to your numbers. For example,<br><code>SELECT (4 / 3)</code> gives a result of 1;<br><code>SELECT (4.0 / 3.0)</code> gives you the result you would expect: 1.333.</p>
+<h5 id="Order-by"><a href="#Order-by" class="headerlink" title="Order by"></a>Order by</h5><p><code>order by xxx</code>: A-Z<br><code>order by xxx desc</code>: Z-A<br>ORDER BY can also be used to sort on multiple columns. It will sort by the first column specified, then sort by the next, then the next, and so on.</p>
+<h5 id="Group-by"><a href="#Group-by" class="headerlink" title="Group by"></a>Group by</h5><p>Commonly, GROUP BY is used with aggregate functions like COUNT() or MAX() or AVG(). Note that GROUP BY always goes after the FROM clause!</p>
+<h5 id="Having"><a href="#Having" class="headerlink" title="Having"></a>Having</h5><p>In SQL, aggregate functions can’t be used in WHERE clauses. This means that if you want to filter based on the result of an aggregate function, you need another way! That’s where the HAVING clause comes in.<br><code>SELECT release_year</code><br><code>FROM films</code><br><code>GROUP BY release_year</code><br><code>HAVING COUNT(title) &gt; 10</code><br>Shows only those years in which more than 10 films were released.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/12/python0210/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1387,7 +1513,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1400,7 +1526,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
