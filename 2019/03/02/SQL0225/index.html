@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="SQL,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="Inner JoinThe ability to combine multiple joins in a single query is a powerful feature of SQL, e.g:SELECT *FROM left_tableINNER JOIN right_tableON left_table.id = right_table.idINNER JOIN another_tab">
+<meta name="keywords" content="SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL for Data Science (2)">
+<meta property="og:url" content="http://yoursite.com/2019/03/02/SQL0225/index.html">
+<meta property="og:site_name" content="Chelly&#39;s Wonderland">
+<meta property="og:description" content="Inner JoinThe ability to combine multiple joins in a single query is a powerful feature of SQL, e.g:SELECT *FROM left_tableINNER JOIN right_tableON left_table.id = right_table.idINNER JOIN another_tab">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-08T22:05:54.215Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL for Data Science (2)">
+<meta name="twitter:description" content="Inner JoinThe ability to combine multiple joins in a single query is a powerful feature of SQL, e.g:SELECT *FROM left_tableINNER JOIN right_tableON left_table.id = right_table.idINNER JOIN another_tab">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/02/SQL0225/">
+
+
+
+
+
+  <title>SQL for Data Science (2) | Chelly's Wonderland</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chelly's Wonderland</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Data Science Learning</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/02/SQL0225/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qianling Ye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chelly's Wonderland">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SQL for Data Science (2)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-02T16:17:46-06:00">
+                2019-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Inner-Join"><a href="#Inner-Join" class="headerlink" title="Inner Join"></a>Inner Join</h3><p>The ability to combine multiple joins in a single query is a powerful feature of SQL, e.g:<br><code>SELECT *</code><br><code>FROM left_table</code><br><code>INNER JOIN right_table</code><br><code>ON left_table.id = right_table.id</code><br><code>INNER JOIN another_table</code><br><code>ON left_table.id = another_table.id and right_table.code = another_table.code</code> / <code>using (id)</code></p>
+<h3 id="When-and-Then"><a href="#When-and-Then" class="headerlink" title="When and Then"></a>When and Then</h3><p><code>SELECT name, continent, code, surface_area,</code><br>        – first case<br>    <code>CASE WHEN surface_area &gt; 2000000 THEN &#39;large&#39;</code><br>        – second case<br>       <code>WHEN surface_area &gt; 350000 THEN &#39;medium&#39;</code><br>        – else clause + end<br>       <code>ELSE &#39;small&#39; END</code><br>        <code>AS geosize_group</code><br><code>FROM countries</code>;</p>
+<h3 id="Into"><a href="#Into" class="headerlink" title="Into"></a>Into</h3><p><code>SELECT country_code, size,</code><br>    <code>CASE WHEN size &gt; 50000000 THEN &#39;large&#39;</code><br>        <code>WHEN size &gt; 1000000 THEN &#39;medium&#39;</code><br>        <code>ELSE &#39;small&#39; END</code><br>        <code>AS popsize_group</code><br><code>INTO pop_plus</code><br><code>FROM populations</code><br><code>WHERE year = 2015</code>;</p>
+<p><code>select name, continent, geosize_group, popsize_group</code><br><code>from countries_plus as c</code><br><code>left join pop_plus as p</code><br><code>on c.code = p.country_code</code><br><code>order by geosize_group</code></p>
+<h3 id="Union"><a href="#Union" class="headerlink" title="Union"></a>Union</h3><p>UNION ALL: returns all records (potentially duplicates) in both tables.<br>UNION: returns only unique records.<br>Duplicates were removed by using UNION.<br>To include duplicates, you can use UNION ALL.</p>
+<p><code>SELECT code, year</code><br><code>FROM economies</code><br><code>union</code><br><code>SELECT country_code as code, year</code><br><code>FROM populations</code><br><code>ORDER BY code, year</code></p>
+<h3 id="Intersect-Except"><a href="#Intersect-Except" class="headerlink" title="Intersect / Except"></a>Intersect / Except</h3><p>Intersect: returns only records appearing in both tables.<br>Intersect looks for records in common in stead of key.</p>
+<p><code>select country_code as code, year</code><br><code>from populations</code><br><code>intersect</code>/ <code>except</code><br><code>select code, year</code><br><code>from economies</code><br><code>order by code, year</code></p>
+<h3 id="Distinct-Group-by"><a href="#Distinct-Group-by" class="headerlink" title="Distinct / Group by"></a>Distinct / Group by</h3><p><code>select distinct name</code><br><code>from languages</code><br><code>order by name</code><br>Select unique name.</p>
+<h3 id="Semi-join"><a href="#Semi-join" class="headerlink" title="Semi-join"></a>Semi-join</h3><p><code>select distinct name</code><br><code>from languages</code><br><code>where code in</code><br><code>(select code</code><br><code>from countries</code><br><code>where region = &#39;Middle East&#39;)</code><br><code>order by name</code></p>
+<p>Sometimes problems solved with semi-joins can also be solved using an inner join.<br><code>SELECT DISTINCT languages.name AS language</code><br><code>FROM languages</code><br><code>INNER JOIN countries</code><br><code>ON languages.code = countries.code</code><br><code>WHERE region = &#39;Middle East&#39;</code><br><code>ORDER BY language</code></p>
+<h3 id="Anti-join"><a href="#Anti-join" class="headerlink" title="Anti-join"></a>Anti-join</h3><p><code>select countries.code , countries.name</code><br><code>from countries</code><br><code>where continent = &#39;Oceania&#39; and code not in</code><br><code>(SELECT code FROM currencies)</code></p>
+<p>An example using union and except<br>– select the city name<br><code>select name</code><br>– alias the table where city name resides<br><code>from cities AS c1</code><br>– choose only records matching the result of multiple set theory clauses<br><code>WHERE country_code IN</code><br><code>(</code><br>    – select appropriate field from economies AS e<br>    <code>SELECT e.code</code><br>    <code>FROM economies AS e</code><br>    – get all additional (unique) values of the field from currencies AS c2<br>    <code>union</code><br>    <code>SELECT c2.code</code><br>    <code>FROM currencies AS c2</code><br>    – exclude those appearing in populations AS p<br>    <code>except</code><br>    <code>SELECT p.country_code</code><br>    <code>FROM populations AS p</code><br><code>)</code></p>
+<h3 id="Subquery-inside-Where"><a href="#Subquery-inside-Where" class="headerlink" title="Subquery inside Where"></a>Subquery inside Where</h3><p>– Select fields<br><code>select *</code><br>  – From populations<br><code>from populations</code><br>– Where life_expectancy is greater than<br><code>where life_expectancy &gt;</code><br>  – 1.15 * subquery<br>  <code>(select avg(life_expectancy)</code><br>   <code>from populations</code><br>   <code>where year = 2015)</code><br>  <code>and year = 2015</code>;</p>
+<p>– 2. Select fields<br><code>select name, country_code, urbanarea_pop</code><br>  – 3. From cities<br><code>from cities</code><br>– 4. Where city name in the field of capital cities<br><code>where name IN</code><br>  – 1. Subquery<br>  <code>(select capital</code><br>   <code>from countries)</code><br><code>ORDER BY urbanarea_pop DESC</code>;</p>
+<p>– Select fields<br><code></code>SELECT code, inflation_rate, unemployment_rate<code>-- From economies</code>FROM economies<code>-- Where year is 2015 and code is not in</code>WHERE year = 2015 AND code not in <code>-- Subquery</code>(SELECT code<code></code>FROM countries<code></code>WHERE (gov_form = ‘Constitutional Monarchy’ OR gov_form LIKE ‘%Republic%’))<code>-- Order by inflation rate</code>ORDER BY inflation_rate`</p>
+<p>LIKE Operator:<br>WHERE CustomerName LIKE ‘a%’        Finds any values that start with “a”<br>WHERE CustomerName LIKE ‘%a’        Finds any values that end with “a”<br>WHERE CustomerName LIKE ‘%or%’      Finds any values that have “or” in any position<br>WHERE CustomerName LIKE ‘<em>r%’       Finds any values that have “r” in the second position<br>WHERE CustomerName LIKE ‘a</em>%_%’     Finds any values that start with “a” and are at least 3 characters in length<br>WHERE ContactName LIKE ‘a%o’        Finds any values that start with “a” and ends with “o”</p>
+<h3 id="Subquery-inside-Select"><a href="#Subquery-inside-Select" class="headerlink" title="Subquery inside Select"></a>Subquery inside Select</h3><p>In this example, you’ll see how some queries can be written using either a join or a subquery.<br><code>SELECT countries.name AS country, COUNT(*) AS cities_num</code><br>  <code>FROM cities</code><br>    <code>INNER JOIN countries</code><br>    <code>ON countries.code = cities.country_code</code><br><code>GROUP BY country</code><br><code>ORDER BY cities_num DESC, country</code><br><code>LIMIT 9</code>;</p>
+<p><code>SELECT countries.name AS country,</code><br>  <code>(SELECT COUNT(*)</code><br>   <code>FROM cities</code><br>   <code>WHERE countries.code = cities.country_code) AS cities_num</code><br><code>FROM countries</code><br><code>ORDER BY cities_num desc, country</code><br><code>LIMIT 9</code></p>
+<h3 id="Subquery-inside-From-clause"><a href="#Subquery-inside-From-clause" class="headerlink" title="Subquery inside From clause"></a>Subquery inside From clause</h3><p><code>select local_name , lang_num</code><br><code>from countries,</code><br>      – Subquery (alias as subquery)<br>   <code>(select code, count(name) as lang_num</code><br>   <code>from languages</code><br>   <code>group by code) AS subquery</code><br>  – Where codes match<br><code>where countries.code = subquery.code</code><br>– Order by descending number of languages<br><code>order by lang_num desc</code></p>
+<h3 id="An-example-using-three-tables"><a href="#An-example-using-three-tables" class="headerlink" title="An example using three tables"></a>An example using three tables</h3><p>– Select fields<br><code>SELECT DISTINCT c.name, c.code, total_investment, imports, c.name</code><br>  – From table (with alias)<br>  <code>FROM countries AS c</code><br>    – Join with table (with alias)<br>    <code>LEFT JOIN economies AS e</code><br>      – Match on code<br>      <code>ON (c.code = e.code</code><br>      – and code in Subquery<br>        <code>AND c.code IN (</code><br>          <code>SELECT l.code</code><br>          <code>FROM languages AS l</code><br>          <code>WHERE official = &#39;true&#39;</code><br>        <code>) )</code><br>  – Where region and year are correct<br>  <code>WHERE region = &#39;Central America&#39; AND year = 2015</code><br>– Order by field<br><code>ORDER BY c.name</code></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SQL/" rel="tag"># SQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/20/SQL0214/" rel="next" title="SQL for Data Science (1)">
+                <i class="fa fa-chevron-left"></i> SQL for Data Science (1)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Qianling Ye">
+          <p class="site-author-name" itemprop="name">Qianling Ye</p>
+           
+              <p class="site-description motion-element" itemprop="description">My efforts to become a Data Scientist</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/qianling-ye-6308a2145" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                    
+                      Linkedin
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/QianlingYe" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:yeqianlingchelly@utexas.edu" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Inner-Join"><span class="nav-number">1.</span> <span class="nav-text">Inner Join</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#When-and-Then"><span class="nav-number">2.</span> <span class="nav-text">When and Then</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Into"><span class="nav-number">3.</span> <span class="nav-text">Into</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Union"><span class="nav-number">4.</span> <span class="nav-text">Union</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intersect-Except"><span class="nav-number">5.</span> <span class="nav-text">Intersect / Except</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Distinct-Group-by"><span class="nav-number">6.</span> <span class="nav-text">Distinct / Group by</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semi-join"><span class="nav-number">7.</span> <span class="nav-text">Semi-join</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Anti-join"><span class="nav-number">8.</span> <span class="nav-text">Anti-join</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subquery-inside-Where"><span class="nav-number">9.</span> <span class="nav-text">Subquery inside Where</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subquery-inside-Select"><span class="nav-number">10.</span> <span class="nav-text">Subquery inside Select</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subquery-inside-From-clause"><span class="nav-number">11.</span> <span class="nav-text">Subquery inside From clause</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#An-example-using-three-tables"><span class="nav-number">12.</span> <span class="nav-text">An example using three tables</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qianling Ye</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
